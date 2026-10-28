@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Cat World</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-page">
+
+    <!-- Navbar -->
+      
+<nav class="navbar navbar-expand-lg cat-navbar fixed-top">
+    <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand cat-brand" href="index.html">
+            <span class="brand-icon">🐱</span>
+            <span>Cat World</span>
+        </a>
+
+        <!-- Mobile Menu -->
+        <button class="navbar-toggler cat-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-controls="navbarContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="breeds.html">Cat Breeds</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#pricing">Pricing</a>
+                </li>
+            </ul>
+
+            <!-- Login, Register and Cart -->
+            <div class="navbar-actions">
+
+                <a href="login.html" class="btn login-btn">
+                    Login
+                </a>
+
+                <a href="signup.html" class="btn register-btn">
+                    Register
+                </a>
+
+                <a href="cart.html" class="btn cart-btn">
+                    🛒 Cart
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Login Section -->
+    <main class="login-section">
+
+        <div class="login-card">
+
+            <div class="login-icon">🐱</div>
+
+            <h1>Welcome Back!</h1>
+
+            <p class="login-subtitle">
+                Login to your Cat World account
+            </p>
+
+            <form id="login-form">
+
+                <div class="mb-3 text-start">
+                    <label for="login-email" class="form-label">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="login-email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <div class="mb-3 text-start">
+                    <label for="login-password" class="form-label">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="login-password"
+                        placeholder="Enter your password"
+                        required
+                        minlength="6"
+                    >
+                </div>
+
+                <div class="login-options">
+                    <label>
+                        <input type="checkbox" id="remember-me">
+                        Remember me
+                    </label>
+
+                    <a href="#" id="forgot-password">
+                        Forgot password?
+                    </a>
+                </div>
+
+                <button type="submit" class="login-submit-btn">
+                    Login
+                </button>
+
+                <p id="login-message" class="login-message"></p>
+
+            </form>
+
+            <div class="login-footer">
+                Don't have an account?
+                <a href="signup.html">Create Account</a>
+            </div>
+
+            <a href="index.html" class="back-home">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

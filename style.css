@@ -1,0 +1,1722 @@
+
+
+
+body {
+    padding-top: 56px;
+    margin: 0;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 56px);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    transform: translateY(-50%);
+    max-width: 600px;
+    color: white;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.hero-btn {
+    display: inline-block;
+    background-color: #d6a56d;
+    color: #222;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.card {
+    margin-bottom: 20px;
+}.breed-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-body {
+    min-height: 220px;
+}
+
+.card-title {
+    margin-bottom: 15px;
+}
+
+.card-text {
+    line-height: 1.6;
+}
+
+/* Breed cards */
+.breed-card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(92, 64, 51, 0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.breed-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(92, 64, 51, 0.18);
+}
+
+/* Cat image */
+.breed-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.breed-card:hover .breed-img {
+    transform: scale(1.03);
+}
+
+/* Card text */
+.breed-card .card-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.breed-card .card-title {
+    color: #5C4033;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.breed-card .card-text {
+    color: #78695D;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Quantity controls */
+.quantity-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 12px 0;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #D8C7B5;
+    border-radius: 8px;
+    background: #F7F1E8;
+    color: #5C4033;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.quantity-btn:hover {
+    background: #795548;
+    color: white;
+}
+
+.quantity {
+    color: #5C4033;
+    font-weight: 700;
+}
+
+/* Add to Cart */
+.add-cart-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 9px;
+    background: #795548;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.add-cart-btn:hover {
+    background: #5C4033;
+}
+
+/* Toast notification */
+
+/* Add to Cart Message */
+#cart-toast {
+    position: fixed;
+    top: 85px;
+    left: 50%;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+    width: fit-content;
+    max-width: 90%;
+
+    background: #ffffff;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translate(-50%, -8px);
+    transition: opacity 0.2s ease, transform 0.2s ease,
+                visibility 0.2s ease;
+}
+
+#cart-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+#cart-toast span:first-child {
+    color: #198754;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#cart-toast span:last-child {
+    white-space: nowrap;
+}
+
+body {
+    padding-top: 60px;
+}
+
+
+/* Cart counter */
+.cart-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    margin-left: 5px;
+    border-radius: 50px;
+    background-color: #795548;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Cat Gallery */
+#cats-container .cat-card {
+    height: 100%;
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#cats-container .cat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+#cats-container .cat-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+#cats-container .card-body {
+    padding: 18px;
+}
+
+#cats-container .btn {
+    border-radius: 10px;
+}
+
+/* Cat Gallery */
+#cats-container .cat-card {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#cats-container .cat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+#cats-container .cat-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+#cats-container .card-body {
+    padding: 22px 18px;
+}
+
+#cats-container .card-title {
+    color: #4e342e;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+#cats-container .card-text {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 48px;
+}
+
+#cats-container .btn-dark {
+    background-color: #795548;
+    border-color: #795548;
+    padding: 9px 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#cats-container .btn-dark:hover {
+    background-color: #5d4037;
+    border-color: #5d4037;
+}
+/* Quantity controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 15px 0;
+}
+
+.quantity-btn {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 10px;
+    background-color: #795548;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quantity-btn:hover {
+    background-color: #5d4037;
+}
+
+.quantity {
+    min-width: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4e342e;
+}
+
+.add-cart-btn {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #795548;
+    border-color: #795548;
+}
+
+.add-cart-btn:hover {
+    background-color: #5d4037;
+    border-color: #5d4037;
+}
+
+
+/* Cart and checkout pages */
+
+#cart-items .card {
+    border: none;
+    border-radius: 14px;
+}
+
+#cart-items .card-title,
+#checkout-items {
+    color: #4e342e;
+}
+
+#checkout-form .form-control {
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+#checkout-form .form-control:focus {
+    border-color: #795548;
+    box-shadow: 0 0 0 0.2rem rgba(121, 85, 72, 0.15);
+}
+
+#checkout-form .btn-dark,
+#cart-summary .btn-dark {
+    background-color: #795548;
+    border-color: #795548;
+}
+
+#checkout-form .btn-dark:hover,
+#cart-summary .btn-dark:hover {
+    background-color: #5d4037;
+    border-color: #5d4037;
+}
+
+
+
+/* Shopping Cart Page */
+
+
+.cart-product {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px;
+    margin-bottom: 18px;
+    background: #fff;
+    border: 1px solid #eee4de;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(79, 55, 43, 0.06);
+}
+
+.cart-product-image {
+    width: 115px;
+    height: 115px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.cart-product-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-product-info h5 {
+    color: #4e342e;
+    font-weight: 700;
+}
+
+.cart-product-price {
+    color: #795548;
+    font-size: 17px;
+}
+
+.cart-summary {
+    position: sticky;
+    top: 100px;
+    padding: 25px;
+    background: #f5eee8;
+    border: 1px solid #e8d9ce;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(79, 55, 43, 0.08);
+}
+
+.cart-summary h4 {
+    color: #4e342e;
+    font-weight: 700;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    color: #5d4037;
+}
+
+.summary-total {
+    font-size: 19px;
+    font-weight: 700;
+    color: #4e342e;
+}
+
+.checkout-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    background: #795548;
+    border-color: #795548;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.checkout-btn:hover {
+    background: #5d4037;
+    border-color: #5d4037;
+}
+
+.continue-shopping {
+    display: block;
+    margin-top: 16px;
+    color: #795548;
+    text-align: center;
+    text-decoration: none;
+}
+
+.continue-shopping:hover {
+    color: #4e342e;
+    text-decoration: underline;
+}
+
+.empty-cart {
+    padding: 40px 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #eee4de;
+    border-radius: 16px;
+}
+
+@media (max-width: 575px) {
+    .cart-product {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .cart-product-image {
+        width: 85px;
+        height: 85px;
+    }
+
+    .cart-product-info {
+        flex-basis: calc(100% - 105px);
+    }
+
+    .cart-product > .btn {
+        margin-left: auto;
+    }
+
+    .cart-summary {
+        position: static;
+    }
+}
+
+.breed-price {
+    color: #795548;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+/* ===== Cat Breeds Page ===== */
+
+#breeds-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 12px 50px;
+}
+
+/* Center the breed cards */
+#breeds-container > div {
+    display: flex;
+    justify-content: center;
+}
+
+/* Breed Card */
+.breed-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #fffaf5;
+    border: 1px solid #eadbcf;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(78, 52, 46, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.breed-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 28px rgba(78, 52, 46, 0.16);
+}
+
+/* Same image size for every breed */
+.breed-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    background-color: #f1e6dc;
+}
+
+/* Card Content */
+.breed-card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px 18px;
+}
+
+.breed-card .card-title {
+    color: #4e342e;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.breed-card .card-text {
+    color: #78665d;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 95px;
+}
+
+/* Price */
+.breed-card .breed-price {
+    color: #795548;
+    background-color: #f2e5d9;
+    border-radius: 20px;
+    padding: 7px 18px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 12px 0 18px;
+}
+
+/* Quantity Controls */
+.breed-card .quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.breed-card .quantity-btn {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background-color: #e8d5c4;
+    color: #4e342e;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.breed-card .quantity-btn:hover {
+    background-color: #d3b49b;
+}
+
+.breed-card .quantity {
+    color: #4e342e;
+    font-weight: 700;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Add to Cart Button */
+.breed-card .add-cart-btn {
+    width: 100%;
+    max-width: 230px;
+    padding: 10px 16px;
+    background-color: #795548;
+    border-color: #795548;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.breed-card .add-cart-btn:hover {
+    background-color: #5d4037;
+    border-color: #5d4037;
+}
+
+@media (max-width: 576px) {
+    #breeds-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .breed-card {
+        max-width: 380px;
+    }
+
+    .breed-img {
+        height: 220px;
+    }
+}
+
+/* Cat Breeds Page Title */
+
+.breeds-title {
+    text-align: center;
+    color: #4e342e;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 auto 50px;
+    position: relative;
+    width: fit-content;
+    padding-bottom: 18px;
+}
+
+.breeds-title::after {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 4px;
+    background-color: #c49a7a;
+    border-radius: 10px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 576px) {
+    .breeds-title {
+        font-size: 29px;
+    }
+}
+
+/* ===== Cat World Footer ===== */
+
+.site-footer {
+    background-color: #3e2b26;
+    color: #f8ebdd;
+    padding: 45px 0 15px;
+    margin-top: 60px;
+}
+
+.footer-brand {
+    color: #f8ebdd;
+    font-size: 26px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-description {
+    color: #d9c4b2;
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+.footer-heading {
+    color: #f8ebdd;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #d9c4b2;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-divider {
+    border-color: #70564b;
+    margin: 28px 0 18px;
+}
+
+.footer-bottom {
+    color: #bda493;
+    font-size: 13px;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .site-footer {
+        text-align: center;
+        padding-top: 35px;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+}
+
+#cats-pagination .page-link {
+    color: #795548;
+    background-color: #fffaf5;
+    border-color: #eadbcf;
+    padding: 10px 18px;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+#cats-pagination .page-item.active .page-link {
+    color: #fff;
+    background-color: #795548;
+    border-color: #795548;
+}
+
+#cats-pagination .page-link:hover {
+    color: #4e342e;
+    background-color: #eadbcf;
+    border-color: #d3b49b;
+}
+
+#cats-pagination .page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(121, 85, 72, 0.2);
+}
+
+/* =========================
+   CAT BREEDS PAGE
+========================= */
+
+#breeds-container {
+    margin-top: 30px;
+    align-items: stretch;
+}
+
+#breeds-container > div {
+    display: flex;
+}
+
+#breeds-container .cat-card {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #eadbcf;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fffaf5;
+    box-shadow: 0 4px 12px rgba(78, 52, 46, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#breeds-container .cat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(78, 52, 46, 0.15);
+}
+
+#breeds-container .cat-image {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background-color: #eadbcf;
+}
+
+#breeds-container .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#breeds-container .card-title {
+    color: #4e342e;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+#breeds-container .card-text {
+    color: #6d5a53;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#breeds-container .cat-price {
+    color: #795548;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+#breeds-container .quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+#breeds-container .quantity-btn {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #795548;
+    border-radius: 8px;
+    background-color: #fffaf5;
+    color: #4e342e;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#breeds-container .quantity-btn:hover {
+    background-color: #eadbcf;
+}
+
+#breeds-container .quantity {
+    min-width: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#breeds-container .add-cart-btn {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    background-color: #795548;
+    border-color: #795548;
+}
+
+#breeds-container .add-cart-btn:hover {
+    background-color: #5d4037;
+    border-color: #5d4037;
+}
+
+@media (max-width: 576px) {
+    #breeds-container .cat-image {
+        height: 220px;
+    }
+
+    #breeds-container .card-body {
+        padding: 15px;
+    }
+}
+
+.cat-navbar {
+    background: #fffaf5 !important;
+    border-bottom: 1px solid #eadbcf;
+    box-shadow: 0 4px 20px rgba(78, 52, 46, 0.10);
+    padding: 12px 0;
+}
+
+.cat-navbar > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.cat-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4e342e !important;
+    font-size: 1.4rem;
+    font-weight: 800;
+    white-space: nowrap;
+    margin-right: 20px;
+}
+
+.brand-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #4e342e;
+    border: 2px solid #d6b477;
+    font-size: 23px;
+}
+
+.cat-navbar .navbar-collapse {
+    flex-grow: 1;
+    align-items: center;
+    min-width: 0;
+}
+
+.cat-navbar .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+}
+
+.cat-navbar .nav-link {
+    color: #6d554a;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.cat-navbar .nav-link:hover,
+.cat-navbar .nav-link.active {
+    color: #795548;
+}
+
+.cat-navbar .navbar-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.cat-navbar .login-btn,
+.cat-navbar .register-btn,
+.cat-navbar .cart-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 13px;
+    border-radius: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.cat-navbar .login-btn,
+.cat-navbar .register-btn {
+    color: #4e342e;
+    border: 1px solid #c8b2a3;
+    background: #fffaf5;
+}
+
+.cat-navbar .login-btn:hover,
+.cat-navbar .register-btn:hover {
+    background: #eadbcf;
+    color: #4e342e;
+}
+
+.cat-navbar .cart-btn {
+    color: #fff;
+    background: #4e342e;
+    border: 1px solid #4e342e;
+}
+
+.cat-navbar .cart-btn:hover {
+    background: #795548;
+    color: #fff;
+}
+
+.cat-navbar .cart-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 5px;
+    border-radius: 50px;
+    background: #d6b477;
+    color: #4e342e;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+@media (max-width: 991.98px) {
+    .cat-navbar > .container {
+        flex-wrap: wrap;
+    }
+
+    .cat-navbar .navbar-collapse {
+        flex-basis: 100%;
+        padding-top: 12px;
+    }
+
+    .cat-navbar .navbar-nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cat-navbar .navbar-actions {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 12px 0 0;
+        padding-top: 12px;
+        border-top: 1px solid #eadbcf;
+    }
+
+    .cat-navbar .navbar-actions .btn {
+        flex: 1;
+    }
+}
+
+
+/* ===== PRICING PAGE ===== */
+
+.pricing-page {
+    min-height: 100vh;
+    background: #fffaf5;
+    color: #4e342e;
+}
+
+.pricing-hero {
+    padding: 150px 20px 85px;
+    background: linear-gradient(135deg, #4e342e, #795548);
+    color: #fffaf5;
+    text-align: center;
+}
+
+.pricing-eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #e6c68d;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.pricing-hero h1 {
+    margin-bottom: 18px;
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 800;
+}
+
+.pricing-hero p {
+    max-width: 600px;
+    margin: 0 auto 28px;
+    color: #f1e5dc;
+    line-height: 1.8;
+}
+
+.pricing-hero-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 10px;
+    background: #e6c68d;
+    color: #4e342e;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.pricing-hero-btn:hover {
+    background: #fffaf5;
+    color: #4e342e;
+}
+
+.pricing-section {
+    padding-top: 65px;
+    padding-bottom: 80px;
+}
+
+.pricing-heading {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.pricing-heading > span {
+    color: #a17a4d;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.pricing-heading h2 {
+    margin: 10px 0;
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.pricing-heading p {
+    color: #806b60;
+}
+
+.pricing-cat-card {
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #eadbcf;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(78, 52, 46, 0.06);
+    transition: transform 0.25s ease;
+}
+
+.pricing-cat-card:hover {
+    transform: translateY(-6px);
+}
+
+.pricing-cat-image {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    background: #eadbcf;
+}
+
+.pricing-cat-body {
+    padding: 22px;
+    text-align: center;
+}
+
+.pricing-cat-body h3 {
+    margin-bottom: 10px;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.pricing-cat-body p {
+    min-height: 48px;
+    color: #806b60;
+    line-height: 1.6;
+}
+
+.pricing-cat-price {
+    margin: 15px 0;
+    color: #795548;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.pricing-view-btn {
+    display: block;
+    padding: 11px 15px;
+    border-radius: 9px;
+    background: #4e342e;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.pricing-view-btn:hover {
+    background: #795548;
+    color: white;
+}
+
+@media (max-width: 576px) {
+    .pricing-hero {
+        padding: 125px 18px 65px;
+    }
+
+    .pricing-heading h2 {
+        font-size: 30px;
+    }
+
+    .pricing-cat-image {
+        height: 220px;
+    }
+}
+
+/* =========================
+   PRICING PAGE
+========================= */
+
+.pricing-page {
+    min-height: 100vh;
+    background: #fffaf5;
+    color: #4e342e;
+}
+
+.pricing-hero {
+    padding: 150px 23px 85px;
+    background: linear-gradient(135deg, #4e342e, #795548);
+    color: #fffaf5;
+    text-align: center;
+}
+
+.pricing-eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #e6c68d;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.pricing-hero h1 {
+    margin-bottom: 18px;
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 800;
+}
+
+.pricing-hero p {
+    max-width: 600px;
+    margin: 0 auto 28px;
+    color: #f1e5dc;
+    line-height: 1.8;
+}
+
+.pricing-hero-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 10px;
+    background: #e6c68d;
+    color: #4e342e;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.pricing-hero-btn:hover {
+    background: #fffaf5;
+    color: #4e342e;
+    transform: translateY(-2px);
+}
+
+.pricing-section {
+    padding-top: 65px;
+    padding-bottom: 80px;
+}
+
+.pricing-heading {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.pricing-heading > span {
+    color: #a17a4d;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.pricing-heading h2 {
+    margin: 10px 0;
+    color: #4e342e;
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.pricing-heading p {
+    color: #806b60;
+}
+
+.pricing-cat-card {
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #eadbcf;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(78, 52, 46, 0.06);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.pricing-cat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(78, 52, 46, 0.12);
+}
+
+.pricing-cat-image,
+.pricing-no-image {
+    display: flex;
+    width: 100%;
+    height: 240px;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+    background: #eadbcf;
+}
+
+.pricing-cat-body {
+    padding: 22px;
+    text-align: center;
+}
+
+.pricing-cat-body h3 {
+    margin-bottom: 10px;
+    color: #4e342e;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.pricing-cat-body p {
+    min-height: 48px;
+    color: #806b60;
+    line-height: 1.6;
+}
+
+.pricing-cat-price {
+    margin: 15px 0;
+    color: #795548;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.pricing-view-btn {
+    display: block;
+    padding: 11px 15px;
+    border: 1px solid #4e342e;
+    border-radius: 9px;
+    background: #4e342e;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.pricing-view-btn:hover {
+    background: #795548;
+    color: #fff;
+}
+
+@media (max-width: 576px) {
+    .pricing-hero {
+        padding: 125px 18px 65px;
+    }
+
+    .pricing-section {
+        padding-top: 45px;
+        padding-bottom: 50px;
+    }
+
+    .pricing-heading h2 {
+        font-size: 30px;
+    }
+
+    .pricing-cat-image,
+    .pricing-no-image {
+        height: 220px;
+    }
+}
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login-page {
+    min-height: 100vh;
+    background: #fffaf5;
+    color: #4e342e;
+}
+
+.login-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 50px;
+    background:
+        radial-gradient(circle at top left, #f0dfcc, transparent 40%),
+        #fffaf5;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 460px;
+    padding: 38px;
+    border: 1px solid #eadbcf;
+    border-radius: 22px;
+    background: #ffffff;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(78, 52, 46, 0.10);
+}
+
+.login-icon {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #f3e5d8;
+    font-size: 38px;
+}
+
+.login-card h1 {
+    margin-bottom: 8px;
+    font-size: 30px;
+    font-weight: 800;
+    color: #4e342e;
+}
+
+.login-subtitle {
+    margin-bottom: 28px;
+    color: #806b60;
+}
+
+.login-card .form-label {
+    color: #4e342e;
+    font-weight: 600;
+}
+
+.login-card .form-control {
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #dfcfc1;
+    border-radius: 10px;
+}
+
+.login-card .form-control:focus {
+    border-color: #795548;
+    box-shadow: 0 0 0 0.2rem rgba(121, 85, 72, 0.15);
+}
+
+.login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 18px 0 24px;
+    font-size: 13px;
+}
+
+.login-options label {
+    color: #806b60;
+}
+
+.login-options a,
+.login-footer a {
+    color: #795548;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login-options a:hover,
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.login-submit-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #4e342e;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.login-submit-btn:hover {
+    background: #795548;
+    transform: translateY(-1px);
+}
+
+.login-message {
+    margin: 14px 0 0;
+    font-size: 14px;
+}
+
+.login-footer {
+    margin-top: 24px;
+    color: #806b60;
+    font-size: 14px;
+}
+
+.back-home {
+    display: inline-block;
+    margin-top: 20px;
+    color: #795548;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.back-home:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 28px 20px;
+    }
+
+    .login-card h1 {
+        font-size: 26px;
+    }
+}
+
+/* =========================
+   REGISTER PAGE
+========================= */
+
+.register-page {
+    min-height: 100vh;
+    background: #fffaf5;
+    color: #4e342e;
+}
+
+.register-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 50px;
+
+    background:
+        radial-gradient(circle at top right, #f0dfcc, transparent 40%),
+        #fffaf5;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 480px;
+    padding: 35px;
+    border: 1px solid #eadbcf;
+    border-radius: 22px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(78, 52, 46, 0.10);
+}
+
+.register-icon {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: #f3e5d8;
+    font-size: 35px;
+}
+
+.register-card h1 {
+    margin-bottom: 8px;
+    color: #4e342e;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.register-subtitle {
+    margin-bottom: 25px;
+    color: #806b60;
+}
+
+.register-card .form-label {
+    color: #4e342e;
+    font-weight: 600;
+}
+
+.register-card .form-control {
+    min-height: 46px;
+    padding: 11px 14px;
+    border: 1px solid #dfcfc1;
+    border-radius: 10px;
+}
+
+.register-card .form-control:focus {
+    border-color: #795548;
+    box-shadow: 0 0 0 0.2rem rgba(121, 85, 72, 0.15);
+}
+
+.password-hint {
+    display: block;
+    margin-top: 6px;
+    color: #806b60;
+    font-size: 12px;
+}
+
+.register-terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 18px 0 22px;
+    text-align: left;
+    color: #806b60;
+    font-size: 13px;
+}
+
+.register-terms input {
+    margin-top: 4px;
+    accent-color: #795548;
+}
+
+.register-terms label {
+    cursor: pointer;
+}
+
+.register-submit-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #4e342e;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.register-submit-btn:hover {
+    background: #795548;
+    transform: translateY(-1px);
+}
+
+.register-message {
+    margin: 14px 0 0;
+    font-size: 14px;
+}
+
+.register-footer {
+    margin-top: 23px;
+    color: #806b60;
+    font-size: 14px;
+}
+
+.register-footer a {
+    color: #795548;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.register-footer a:hover {
+    text-decoration: underline;
+}
+
+.register-back-home {
+    display: inline-block;
+    margin-top: 18px;
+    color: #795548;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.register-back-home:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .register-card {
+        padding: 27px 20px;
+    }
+
+    .register-card h1 {
+        font-size: 26px;
+    }
+}
+.breeds-title {
+    margin-top: 80px;
+    margin-bottom: 15px;
+}
